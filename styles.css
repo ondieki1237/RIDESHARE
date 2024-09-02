@@ -115,3 +115,39 @@ footer {
         margin-bottom: 20px;
     }
 }
+/* Styling for the login and sign-up pages */
+#signup-page, #login-page {
+    max-width: 400px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#signup-page h2, #login-page h2 {
+    margin-bottom: 20px;
+}
+
+#signup-page form input, #login-page form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#signup-page form button, #login-page form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#signup-page p, #login-page p {
+    margin-top: 20px;
+}
