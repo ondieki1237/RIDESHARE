@@ -19,10 +19,78 @@
     <main>
         <section id="signup-page">
             <h2>Create Your Account</h2>
-            <form id="signup-form" method="POST" action="/signup">
+            <form id="signup-form" method="POST" action="submit_signup.php">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
+                <input type="text" name="id_number" placeholder="ID Number" required>
+                <input type="text" name="phone_number" placeholder="Phone Number" required>
+                <input type="number" name="seats_number" placeholder="Number of Seats" required min="1">
+                <select name="city" required>
+                    <option value="" disabled selected>Select Your City</option>
+                    <option value="Nairobi">Nairobi</option>
+                    <option value="Mombasa">Mombasa</option>
+                    <option value="Kisumu">Kisumu</option>
+                    <option value="Nakuru">Nakuru</option>
+                    <option value="Eldoret">Eldoret</option>
+                    <option value="Thika">Thika</option>
+                    <option value="Naivasha">Naivasha</option>
+                    <option value="Nyeri">Nyeri</option>
+                    <option value="Malindi">Malindi</option>
+                    <option value="Lamu">Lamu</option>
+                    <option value="Kakamega">Kakamega</option>
+                    <option value="Kericho">Kericho</option>
+                    <option value="Kitale">Kitale</option>
+                    <option value="Machakos">Machakos</option>
+                    <option value="Garissa">Garissa</option>
+                    <option value="Marsabit">Marsabit</option>
+                    <option value="Lodwar">Lodwar</option>
+                    <option value="Wajir">Wajir</option>
+                    <option value="Mandera">Mandera</option>
+                    <option value="Isiolo">Isiolo</option>
+                    <option value="Narok">Narok</option>
+                    <option value="Kitui">Kitui</option>
+                    <option value="Embu">Embu</option>
+                    <option value="Meru">Meru</option>
+                    <option value="Bungoma">Bungoma</option>
+                    <option value="Busia">Busia</option>
+                    <option value="Siaya">Siaya</option>
+                    <option value="Homa Bay">Homa Bay</option>
+                    <option value="Migori">Migori</option>
+                    <option value="Kisii">Kisii</option>
+                    <option value="Kilifi">Kilifi</option>
+                    <option value="Voi">Voi</option>
+                    <option value="Nanyuki">Nanyuki</option>
+                    <option value="Nyahururu">Nyahururu</option>
+                    <option value="Kimilili">Kimilili</option>
+                    <option value="Kabarnet">Kabarnet</option>
+                    <option value="Mumias">Mumias</option>
+                    <option value="Kapsabet">Kapsabet</option>
+                    <option value="Njoro">Njoro</option>
+                    <option value="Watamu">Watamu</option>
+                    <option value="Moroto">Moroto</option>
+                    <option value="Rongo">Rongo</option>
+                    <option value="Kehancha">Kehancha</option>
+                    <option value="Maua">Maua</option>
+                    <option value="Takaba">Takaba</option>
+                    <option value="Taveta">Taveta</option>
+                    <option value="Chuka">Chuka</option>
+                    <option value="Bondo">Bondo</option>
+                    <option value="El Wak">El Wak</option>
+                    <option value="Habaswein">Habaswein</option>
+                    <option value="Rhamu">Rhamu</option>
+                    <option value="Wote">Wote</option>
+                    <option value="Elburgon">Elburgon</option>
+                    <option value="Makutano">Makutano</option>
+                    <option value="Mariakani">Mariakani</option>
+                    <option value="Maralal">Maralal</option>
+                    <option value="Mairo-Inya">Mairo-Inya</option>
+                    <option value="Kiserian">Kiserian</option>
+                    <option value="Ukunda">Ukunda</option>
+                    <option value="Naro Moru">Naro Moru</option>
+                    <option value="Shimoni">Shimoni</option>
+                    <option value="Takaungu">Takaungu</option>
+                </select>
                 <button type="submit" class="btn">Sign Up</button>
             </form>
             <p>Already have an account? <a href="login.html">Login here</a></p>

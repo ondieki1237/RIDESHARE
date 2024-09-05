@@ -1,39 +1,3 @@
-const express = require('express');
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
-
-const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Serve static files (HTML, CSS, JS)
-app.use(express.static('public'));
-
-// MySQL connection
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '', // replace with your MySQL password
-    database: 'RideShareDB'
-});
-
-db.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to MySQL Database!');
-});
-
-// Handle sign-up form submission
-app.post('/signup', (req, res) => {
-    const { name, email, password } = req.body;
-    const sql = 'INSERT INTO users (full_name, email, password_hash) VALUES (?, ?, ?)';
-
-    db.query(sql, [name, email, password], (err, result) => {
-        if (err) throw err;
-        res.send('User registered successfully!');
-    });
-});
-
-// Handle login form submission
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     const sql = 'SELECT * FROM users WHERE email = ? AND password_hash = ?';
@@ -41,17 +5,22 @@ app.post('/login', (req, res) => {
     db.query(sql, [email, password], (err, results) => {
         if (err) throw err;
         if (results.length > 0) {
-            res.send('Login successful!');
+            req.session.user = results[0];
+            res.redirect('/dashboard.html');
         } else {
             res.send('Invalid email or password.');
         }
     });
 });
 
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.post('/signup', (req, res) => {
+    const { name, email, password } = req.body;
+    const sql = 'INSERT INTO users (full_name, email, password_hash) VALUES (?, ?, ?)';
+
+    db.query(sql, [name, email, password], (err, result) => {
+        if (err) throw err;
+        res.redirect('/login.html'); // Redirect to the login page after successful registration
+    });
 });
 const session = require('express-session');
 
@@ -75,6 +44,8 @@ function requireLogin(req, res, next) {
 app.get('/dashboard.html', requireLogin, (req, res) => {
     res.sendFile(__dirname + '/public/dashboard.html');
 });
+
+// Logout functionality
 app.get('/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) {
@@ -84,3 +55,4 @@ app.get('/logout', (req, res) => {
         res.redirect('/login.html');
     });
 });
+
