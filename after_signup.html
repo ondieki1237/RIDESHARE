@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideShare - Dashboard</title>
+    <style>
+        /* Existing styles plus theme updates */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+            background: #007bff; /* Blue header */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header .btn {
+            background: #fff;
+            color: #007bff;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        header .btn:hover {
+            background: #e9ecef;
+        }
+        footer {
+            background: #007bff; /* Blue footer */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+        .section {
+            margin-top: 70px; /* Space for fixed header */
+            margin-bottom: 70px; /* Space for fixed footer */
+        }
+        .section h2 {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .section p {
+            padding: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .btn:active {
+            background: #004494;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rideshare Dashboard</h1>
+        <a href="logout.php" class="btn">Sign Out</a>
+    </header>
+
+    <div class="container">
+        <!-- Booking a Vehicle -->
+        <div class="section">
+            <h2>Book a Vehicle</h2>
+            <p>Use the form below to book a vehicle for your next trip.</p>
+            <form action="book_vehicle.php" method="post">
+                <label for="vehicle_type">Vehicle Type:</label>
+                <select id="vehicle_type" name="vehicle_type" required>
+                    <option value="sedan">Sedan</option>
+                    <option value="suv">SUV</option>
+                    <option value="van">Van</option>
+                </select>
+                <br><br>
+                <label for="pickup_location">Pick-Up Location:</label>
+                <input type="text" id="pickup_location" name="pickup_location" required>
+                <br><br>
+                <label for="dropoff_location">Drop-Off Location:</label>
+                <input type="text" id="dropoff_location" name="dropoff_location" required>
+                <br><br>
+                <input type="submit" value="Book Vehicle" class="btn">
+            </form>
+        </div>
+
+        <!-- Available Trips -->
+        <div class="section">
+            <h2>Available Trips</h2>
+            <p>Check out the available trips you can book.</p>
+            <a href="available_trips.php" class="btn">View Available Trips</a>
+        </div>
+
+        <!-- E-Wallet -->
+        <div class="section">
+            <h2>Your E-Wallet</h2>
+            <p>View your current balance and manage your wallet.</p>
+            <a href="e_wallet.php" class="btn">Check E-Wallet</a>
+        </div>
+
+        <!-- Travel History -->
+        <div class="section">
+            <h2>Your Travel History</h2>
+            <p>Review your past trips and travel history.</p>
+            <a href="travel_history.php" class="btn">View Travel History</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Regards, The Rideshare Team</p>
+    </footer>
+</body>
+</html>
