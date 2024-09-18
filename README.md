@@ -80,4 +80,4 @@ Moving forward, I'd love to:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/rideshare-platform.git
+   git clone https://github.com/ondieki1237/rideshare-platform.git
