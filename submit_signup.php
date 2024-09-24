@@ -1,44 +1,43 @@
 <?php
-$servername = "localhost";
-$username = "your_username";
-$password = "your_password";
-$dbname = "RideShareDB";
+// Database connection details
+$servername = "localhost"; // Replace with your MySQL server name
+$username = "root"; // Replace with your MySQL username
+$password = "root"; // Replace with your MySQL password
+$dbname = "ridesharedb"; // Replace with your database name
 
-// Create connection
+// Establishing connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+// Checking connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get form data
-$name = $_POST['name'];
-$email = $_POST['email'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hashing the password for security
-$id_number = $_POST['id_number'];
-$phone_number = $_POST['phone_number'];
-$seats_number = $_POST['seats_number']; // Assuming this is an integer
-$city = $_POST['city'];
+// Processing form data when form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collecting and sanitizing input data
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $id_number = mysqli_real_escape_string($conn, $_POST['id_number']);
+    $phone_number = mysqli_real_escape_string($conn, $_POST['phone_number']);
+    $seats_number = mysqli_real_escape_string($conn, $_POST['seats_number']);
+    $city = mysqli_real_escape_string($conn, $_POST['city']);
 
-// Prepare and bind
-$stmt = $conn->prepare("INSERT INTO users (name, email, password, id_number, phone_number, seats_number, city) VALUES (?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssis", $name, $email, $password, $id_number, $phone_number, $seats_number, $city); // Check if 'i' or 's' for seats_number
+    // Inserting data into MySQL database
+    $sql = "INSERT INTO users (name, email, password, id_number, phone_number, seats_number, city)
+            VALUES ('$name', '$email', '$password', '$id_number', '$phone_number', '$seats_number', '$city')";
 
-// Execute the statement
-if ($stmt->execute()) {
-    // Close connections
-    $stmt->close();
-    $conn->close();
-    
-    // Redirect to a confirmation page or back to the sign-up page
-    header("Location: success.html");
-    exit;
-} else {
-    echo "Error: " . $stmt->error;
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+        // Redirect to a success page or do something else
+        // header('Location: success.html');
+        // exit();
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
-// Close connections in case of error
-$stmt->close();
+// Closing connection
 $conn->close();
 ?>

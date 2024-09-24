@@ -1,58 +1,33 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+
+// Use body-parser to parse form data
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Mock user credentials for login
+const users = {
+    username: 'password123'  // Example credentials
+};
+
+// Handle POST request from login form
 app.post('/login', (req, res) => {
-    const { email, password } = req.body;
-    const sql = 'SELECT * FROM users WHERE email = ? AND password_hash = ?';
+    const { username, password } = req.body;
 
-    db.query(sql, [email, password], (err, results) => {
-        if (err) throw err;
-        if (results.length > 0) {
-            req.session.user = results[0];
-            res.redirect('/dashboard.html');
-        } else {
-            res.send('Invalid email or password.');
-        }
-    });
-});
-
-app.post('/signup', (req, res) => {
-    const { name, email, password } = req.body;
-    const sql = 'INSERT INTO users (full_name, email, password_hash) VALUES (?, ?, ?)';
-
-    db.query(sql, [name, email, password], (err, result) => {
-        if (err) throw err;
-        res.redirect('/login.html'); // Redirect to the login page after successful registration
-    });
-});
-const session = require('express-session');
-
-// Session middleware setup
-app.use(session({
-    secret: 'your_secret_key',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false } // Set to true if using HTTPS
-}));
-
-// Middleware to protect routes
-function requireLogin(req, res, next) {
-    if (!req.session.user) {
-        return res.redirect('/login.html');
+    // Check if credentials match
+    if (users[username] && users[username] === password) {
+        res.redirect('/dashboard');  // Successful login
+    } else {
+        res.status(403).send('Invalid credentials');  // Login failed
     }
-    next();
-}
-
-// Protect the dashboard route
-app.get('/dashboard.html', requireLogin, (req, res) => {
-    res.sendFile(__dirname + '/public/dashboard.html');
 });
 
-// Logout functionality
-app.get('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        if (err) {
-            return res.redirect('/dashboard.html');
-        }
-        res.clearCookie('connect.sid');
-        res.redirect('/login.html');
-    });
+// Serve the dashboard (after login page)
+app.get('/dashboard', (req, res) => {
+    res.sendFile(__dirname + '/after_signup.html');  // Serve the after-login page
 });
 
+// Start the server
+app.listen(3000, () => {
+    console.log('Server running on http://localhost:3000');
+});

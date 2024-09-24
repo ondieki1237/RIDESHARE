@@ -4,52 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RideShare App</title>
+    <style>
+        /* CSS styles for the map container */
+        #map {
+            height: 400px; /* Adjust the height as needed */
+            width: 100%; /* Full width */
+        }
+    </style>
+    <!-- Link to your custom CSS files -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles1.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Google Maps API with your API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <!-- Link to your custom JavaScript file -->
+    <script src="path/to/your/script.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>RideShare</h1>
-            <ul>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="form-area">
+        <header>
+            <nav>
+                <h1>RideShare</h1>
+                <section>
+                    <ul>
+                        <img src="images/Shop now_20240906_154840_0000.jpg" alt="Blur on Scroll Image" id="blur-image">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </section>
+            </nav>
+        </header>
 
-    <section id="hero">
-        <h2>Find a ride, share a ride, save money</h2>
-        <p>Join our community of travelers and ride sharers today!</p>
-        <a href="signup.html"class=btn>GET STARTED</a>
-    </section>
+        <section>
+            <h2>Find a ride, share a ride, save money</h2>
+            <p>Join our community of travelers and ride sharers today!</p>
+            <a href="signup.html" class="btn">GET STARTED</a>
+        </section>
 
-    <section id="features">
-        <h3>App Features</h3>
-        <div class="feature-list">
-            <div class="feature">
-                <h4>Easy Booking</h4>
-                <p>Quickly find and book a ride that suits your schedule.</p>
+        <section id="features">
+            <h3>App Features</h3>
+            <div class="feature-list">
+                <div class="feature">
+                    <h4>Easy Booking</h4>
+                    <button id="featuresbtn">
+                        <p>Quickly find and book a ride that suits your schedule.</p>
+                    </button>
+                </div>
+                <div class="feature">
+                    <h4>Secure Payments</h4>
+                    <button id="featuresbtn">
+                        <p>Pay securely through our integrated payment system.</p>
+                    </button>
+                </div>
+                <div class="feature">
+                    <h4>Real-time Updates</h4>
+                    <button id="featuresbtn">
+                        <p>Stay informed with real-time notifications on your rides.</p>
+                    </button>
+                </div>
             </div>
-            <div class="feature">
-                <h4>Secure Payments</h4>
-                <p>Pay securely through our integrated payment system.</p>
+        </section>
+
+        <section id="mapSection">
+            <!-- This is where the map will be displayed -->
+            <div id="map"></div>
+        </section>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Aiming to make travelling a somewhat to recall event with rideshare</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">About</a></li>
+                        <li><a href="index.html">Services</a></li>
+                        <li><a href="index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#">X</a>
+                    </div>
+                </div>
             </div>
-            <div class="feature">
-                <h4>Real-time Updates</h4>
-                <p>Stay informed with real-time notifications on your rides.</p>
+            <div class="copyright">
+                <p>&copy; 2024 RideShare All rights reserved.</p>
             </div>
-        </div>
-    </section>
-    <section>
-        <ul>
-            <li><a href="login.html"class=btn1>login</li>
-            <li><a href="signup.html"class=btn1>signup</li>
-        </ul>
-        
-    </section>
-    <footer>
-        <p>&copy; 2024 RideShare. All rights reserved.</p>
-    </footer>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript code to initialize Google Map
+        function initMap() {
+            // Specify the coordinates where the map will center
+            var myLatLng = { lat: -1.286389, lng: 36.817223 };
+
+            // Create a map object and specify the DOM element for display.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 12 // Adjust the zoom level as needed
+            });
+
+            // Optionally, add markers or other map functionality here
+        }
+    </script>
+    <!-- Call the initMap function when the page loads -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 </body>
 </html>

@@ -1,0 +1,90 @@
+write a script to make a rideshare app.
+a big stylistic word RIDESHARE with a captivatong font will be at the top of the website. on clicking the word it should lead you back to the home page
+the landing page will be having an image which i have shaed above
+the landing page will have a hoover button to help navigate. it will have the signup and the login page
+then below we will have three buttons of the website including the Easy booking, secure travels, real time updates abd also cheap costs. in each button the button should be stylistic with atleast 30 words. when the cursor points the button, the button should appear hovering
+then below we will have two small buttons which will be links to log in and sign up pages.
+remember below each website is an all rights reserved
+THE SIGN UP page
+the sign up page will have a form that will capture the following. name, email, phone number, nationao identity, password and then choose either a traveller or a driver.
+the page should also contain the log in link incase the user already has an account.
+the page will have the same picture as the background of the form
+THE LOGIN PAGE
+only the email and the password are required
+AFTER SIGN UP
+This page will contain the balance in the travellers wallet, the hot picks of the day for him, th travel history of him, and an option to book a journey if its a traveller or an option to choose to set a journer all these are different pages 
+under my account, there should be an option to deposit or to withdraw the funds
+my journey history should have a graph on how the member has been travelling and to where
+this page will also contain a social media tab where travellers can post their experience using the RIDESHARE app.
+the page should contain a list of the available journerys and the huddles to the drivers who have posted the trips and the cost, the time and the destinations
+while booking a journey, the traveller will have to input his current location and then input where he wants to get to
+
+
+finally make a database and link it to the website and the different pages
+the database will be called journeyDB 
+it will take in the data while signing up and the data will be used to sign in
+
+the name of the image is Shop now_20240906_154840_0000 and its in the folder images
+the names of the towns are:
+                    <option value="Nairobi">Nairobi</option>
+                    <option value="Mombasa">Mombasa</option>
+                    <option value="Kisumu">Kisumu</option>
+                    <option value="Nakuru">Nakuru</option>
+                    <option value="Eldoret">Eldoret</option>
+                    <option value="Thika">Thika</option>
+                    <option value="Naivasha">Naivasha</option>
+                    <option value="Nyeri">Nyeri</option>
+                    <option value="Malindi">Malindi</option>
+                    <option value="Lamu">Lamu</option>
+                    <option value="Kakamega">Kakamega</option>
+                    <option value="Kericho">Kericho</option>
+                    <option value="Kitale">Kitale</option>
+                    <option value="Machakos">Machakos</option>
+                    <option value="Garissa">Garissa</option>
+                    <option value="Marsabit">Marsabit</option>
+                    <option value="Lodwar">Lodwar</option>
+                    <option value="Wajir">Wajir</option>
+                    <option value="Mandera">Mandera</option>
+                    <option value="Isiolo">Isiolo</option>
+                    <option value="Narok">Narok</option>
+                    <option value="Kitui">Kitui</option>
+                    <option value="Embu">Embu</option>
+                    <option value="Meru">Meru</option>
+                    <option value="Bungoma">Bungoma</option>
+                    <option value="Busia">Busia</option>
+                    <option value="Siaya">Siaya</option>
+                    <option value="Homa Bay">Homa Bay</option>
+                    <option value="Migori">Migori</option>
+                    <option value="Kisii">Kisii</option>
+                    <option value="Kilifi">Kilifi</option>
+                    <option value="Voi">Voi</option>
+                    <option value="Nanyuki">Nanyuki</option>
+                    <option value="Nyahururu">Nyahururu</option>
+                    <option value="Kimilili">Kimilili</option>
+                    <option value="Kabarnet">Kabarnet</option>
+                    <option value="Mumias">Mumias</option>
+                    <option value="Kapsabet">Kapsabet</option>
+                    <option value="Njoro">Njoro</option>
+                    <option value="Watamu">Watamu</option>
+                    <option value="Moroto">Moroto</option>
+                    <option value="Rongo">Rongo</option>
+                    <option value="Kehancha">Kehancha</option>
+                    <option value="Maua">Maua</option>
+                    <option value="Takaba">Takaba</option>
+                    <option value="Taveta">Taveta</option>
+                    <option value="Chuka">Chuka</option>
+                    <option value="Bondo">Bondo</option>
+                    <option value="El Wak">El Wak</option>
+                    <option value="Habaswein">Habaswein</option>
+                    <option value="Rhamu">Rhamu</option>
+                    <option value="Wote">Wote</option>
+                    <option value="Elburgon">Elburgon</option>
+                    <option value="Makutano">Makutano</option>
+                    <option value="Mariakani">Mariakani</option>
+                    <option value="Maralal">Maralal</option>
+                    <option value="Mairo-Inya">Mairo-Inya</option>
+                    <option value="Kiserian">Kiserian</option>
+                    <option value="Ukunda">Ukunda</option>
+                    <option value="Naro Moru">Naro Moru</option>
+                    <option value="Shimoni">Shimoni</option>
+                    <option value="Takaungu">Takaungu</option>

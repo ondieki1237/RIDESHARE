@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "your_username";
-$password = "your_password";
-$dbname = "RideShareDB";
+$username = "root";
+$password = "root";
+$dbname = "ridesharedb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
